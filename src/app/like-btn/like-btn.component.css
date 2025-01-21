@@ -1,0 +1,61 @@
+.like-btn {
+  width:max-content;
+  cursor: pointer;
+  border: unset;
+  border-radius: var(--border-radius-rounded);
+  color: var(--color-cta-text);
+  background-color: var(--color-cta-background);
+  font-size: var(--font-size-important);
+  font-family: monospace;
+  font-weight: 600;
+  text-shadow:var(--text-shadow);
+  box-shadow: var(--box-shadow);
+  transition: all .175s;
+  padding: var(--padding-regular) var(--padding-big);
+  line-height:1;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius:var(--border-radius-rounded);
+    background-color: var(--color-cta-background-hover);
+    z-index: -1;
+    transition: all .175s;
+  }
+
+  &:hover {
+    color: var(--color-cta-text-hover);
+    box-shadow:var(--box-shadow-hover);
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  &.like-btn-active {
+    color: var(--color-cta-text-active);
+    box-shadow: var(--box-shadow-hover);
+
+    &:hover{
+      box-shadow:var(--box-shadow);
+    }
+
+    &:active::before{
+      transition:all .075s;
+      background-color: var(--color-error);
+      opacity:1;
+    }
+
+    &::before {
+      width: 100%;
+      background-color: var(--color-cta-background-active);
+    }
+  }
+}

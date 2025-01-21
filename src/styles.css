@@ -1,1 +1,302 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /*
+    Colors
+  */
+  --color-light: #f7fdfb;
+  --color-dark: #313f3c;
+  --color-background: #f7fdfb;
+  --color-cta-background: #d7f2ec;
+  --color-cta-text: #313f3c;
+  --color-cta-background-hover: #313f3c;
+  --color-cta-text-hover: #d7f2ec;
+  --color-cta-background-active: #38ad94;
+  --color-cta-text-active: #d7f2ec;
+  --color-error: #c75252;
+  --color-warning: #bfc752;
+  --color-valid: #52c7ad;
+
+  /*
+    Text-shadow
+  */
+  --text-shadow: 0 .05rem .05rem #313f3c;
+
+  /*
+    Box-shadow
+  */
+  --box-shadow:
+    .2rem .2rem .2rem -.1rem #313f3c45,
+    -.2rem .2rem .2rem -.1rem #313f3c45;
+  --box-shadow-hover:
+    .1rem .1rem .1rem -.05rem #313f3c45,
+    -.1rem .1rem .1rem -.05rem #313f3c45;
+  --box-shadow-container:
+    .2rem -.2rem .2rem -.1rem #313f3c45,
+    -.2rem -.2rem .2rem -.1rem #313f3c45,
+    .2rem .2rem .2rem -.1rem #313f3c45,
+    -.2rem .2rem .2rem -.1rem #313f3c45;
+  --box-shadow-container-hover:
+    .1rem -.1rem .1rem -.05rem #313f3c45,
+    -.1rem -.1rem .1rem -.05rem #313f3c45,
+    .1rem .1rem .1rem -.05rem #313f3c45,
+    -.1rem .1rem .1rem -.05rem #313f3c45;
+
+  /*
+    Border radius
+  */
+  --border-radius: .4rem;
+  --border-radius-squircle: .8rem;
+  --border-radius-rounded: 99rem;
+
+  /*
+    Fonts
+  */
+  --font-size-base: 13px;
+  --font-size-title-1: 1.7rem;
+  --font-size-title-2: 1.3rem;
+  --font-size-title-3: 1.25rem;
+  --font-size-title-4: 1.225rem;
+  --font-size-title-5: 1.2rem;
+  --font-size-title-6: 1.15rem;
+  --font-size-important: 1.05rem;
+  --font-size-subtitle: 1rem;
+  --font-size-text: .9rem;
+  --font-size-small: .8rem;
+  --font-weight-bolder: 900;
+  --font-weight-bold: 700;
+  --font-weight-medium: 600;
+  --font-weight-regular: 500;
+  --font-weight-small: 400;
+
+  /*
+    Padding
+  */
+  --padding:.4rem;
+  --padding-small:calc(var(--padding) / 2);
+  --padding-regular:var(--padding);
+  --padding-big:calc(var(--padding) * 2);
+  --padding-bigger:calc(var(--padding) * 4);
+  --padding-xl:calc(var(--padding) * 6);
+
+  /*
+    Media queries [do not work in media query condition, just notice]
+  */
+  --media-xl: calc(1920px - 1.2rem);
+  --media-large: calc(1280px - 1.2rem);
+  --media-medium: calc(980px - 1.2rem);
+  --media-small: calc(760px - 1.2rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  max-width: 100%;
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-dark);
+  font-size: var(--font-size-base);
+  line-height: 1.3;
+  letter-spacing: .025rem;
+}
+
+h1 {
+  font-size: var(--font-size-title-1);
+}
+
+h2 {
+  font-size: var(--font-size-title-2);
+}
+
+h3 {
+  font-size: var(--font-size-title-3);
+}
+
+h4 {
+  font-size: var(--font-size-title-4);
+}
+
+h5 {
+  font-size: var(--font-size-title-5);
+}
+
+h6 {
+  font-size: var(--font-size-title-6);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Ubuntu", sans-serif;
+  line-height: 1.5;
+  font-weight: var(--font-weight-bold);
+}
+
+.subtitle {
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-medium);
+}
+
+p {
+  font-size: var(--font-size-text);
+  font-weight: var(--font-weight-regular);
+}
+
+strong,
+b,
+.important {
+  font-size: var(--font-size-important);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.small {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+}
+
+a,
+a:visited {
+  display: inline-flex;
+  text-decoration: none;
+  color: var(--color-cta-text);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-rounded);
+  text-transform: lowercase;
+  overflow: hidden;
+  padding: 0 var(--padding-small);
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 0;
+    background-color: var(--color-cta-background-hover);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: height .125s;
+  }
+
+  &:hover {
+    color: var(--color-cta-text-hover);
+
+    &::before {
+      height: 100%;
+    }
+  }
+
+  &:active {
+    transition: all .025s;
+    color: var(--color-cta-text);
+
+    &::before {
+      height: 0;
+      top:0;
+    }
+  }
+
+  &:focus {
+    outline:1px solid var(--color-cta-text);
+  }
+
+  &:is(.invisible-link) {
+    color: inherit;
+  }
+}
+
+.main-head {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem;
+  padding: .4rem 1.2rem;
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1.2rem;
+  padding: .4rem 1.2rem;
+
+  @media (width <=calc(760px + 1.2rem)) {
+    align-items: center;
+  }
+}
+
+.main-sections {
+  width: 100%;
+  max-width: calc(100% - 1.2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .8rem;
+}
+
+.row-sections {
+  width: 100%;
+  max-width: calc(100% - 1.2rem);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+
+  @media (width <=calc(760px + 1.2rem)) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2.4rem;
+  }
+}
+
+.grid-sections {
+  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows:auto;
+  grid-auto-flow:row dense;
+  gap:1.6rem 1.2rem;
+  margin-inline:auto;
+
+  @media (width <=calc(760px + 1.2rem)) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.main-articles {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .8rem;
+}
+
+.main-foot {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .8rem;
+  padding: .4rem 1.2rem;
+}
