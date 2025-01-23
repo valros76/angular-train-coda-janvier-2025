@@ -1,27 +1,35 @@
 .web-snap-card {
   width: 100%;
-  max-width:350px;
-  display:inline-flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:stretch;
-  gap:.8rem;
-  padding:.8rem 1.2rem;
-  box-shadow:var(--box-shadow-container);
-  border-radius:var(--border-radius);
-  overflow:hidden;
+  max-width: 350px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .8rem;
+  padding: .8rem 1.2rem;
+  box-shadow: var(--box-shadow-container);
+  border-radius: var(--border-radius);
+  overflow: hidden;
 
-  &:hover{
-    box-shadow:var(--box-shadow-container-hover);
+  &:hover {
+    box-shadow: var(--box-shadow-container-hover);
+  }
+
+  .subtitle:not(:first-of-type)::before {
+    content: "|";
+    width: max-content;
+    height:auto;
+    color:var(--color-grey);
+    font-weight:var(--font-weight-small);
   }
 
   img {
     max-width: 100%;
-    height:auto;
-    aspect-ratio:4/3;
-    border-radius:var(--border-radius);
-    object-fit:cover;
-    object-position:center;
+    height: auto;
+    aspect-ratio: 4/3;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    object-position: center;
   }
 
   .like-cta {
@@ -50,7 +58,7 @@
       &:hover {
         background-color: var(--color-cta-background-hover);
       }
-  
+
       &:active {
         background-color: var(--color-cta-background);
         outline: 1px solid var(--color-cta-text);
@@ -58,9 +66,9 @@
     }
   }
 
-  @media(width <= calc(760px + 1.2rem)){
-    max-width:100%;
-    margin-inline:auto;
+  @media(width <=calc(760px + 1.2rem)) {
+    max-width: 100%;
+    margin-inline: auto;
   }
 
 }

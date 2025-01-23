@@ -1,3 +1,9 @@
-<button [class]="likeBtnClass" (click)="onLike()">
+<button 
+  class="like-btn" 
+  [ngClass]="{
+    'like-btn-active': this.isLiked
+  }" 
+  (click)="isLiked ? onLikeByType('unlike') : onLikeByType('like')"
+>
   {{isLiked ? "👌" : "👍"}} {{likes}}
 </button>

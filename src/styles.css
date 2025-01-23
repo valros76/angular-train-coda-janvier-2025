@@ -4,6 +4,7 @@
   */
   --color-light: #f7fdfb;
   --color-dark: #313f3c;
+  --color-grey: #9ba1a0;
   --color-background: #f7fdfb;
   --color-cta-background: #d7f2ec;
   --color-cta-text: #313f3c;
@@ -140,6 +141,7 @@ h6 {
 }
 
 .subtitle {
+  font-family:monospace;
   font-size: var(--font-size-subtitle);
   font-weight: var(--font-weight-medium);
 }

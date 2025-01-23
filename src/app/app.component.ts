@@ -1,21 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { WebSnapComponent } from './web-snap/web-snap.component';
-import { LikeBtnComponent } from './like-btn/like-btn.component';
+import { WebSnapListComponent } from './web-snap-list/web-snap-list.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterOutlet,
-    WebSnapComponent,
-    LikeBtnComponent
+    HeaderComponent,
+    FooterComponent,
+    WebSnapListComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  
+export class AppComponent implements OnInit {
+
+  ngOnInit(): void {
+  }
+
 }

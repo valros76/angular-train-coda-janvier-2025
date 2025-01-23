@@ -1,11 +1,37 @@
 <article class="web-snap-card">
-  <h2>{{title}}</h2>
+  <h2>
+    @if(!websnap || !websnap.title){
+    {{defaultWebSnap.title}}
+    }
+    @else{
+    {{websnap.title}}
+    }
+  </h2>
   <p>
-    <span class="subtitle">{{createdDate}}</span>
+    <span class="subtitle">
+      @if(!websnap || !websnap.createdDate){
+      {{defaultWebSnap.createdDate}}
+      }@else{
+      {{websnap.createdDate | date:"dd/MM/yy à HH:mm"}}
+      }
+    </span>
+    @if(websnap && websnap.location){
+      <span class="subtitle">
+        À {{websnap.location}}
+      </span>
+    }
   </p>
-  <img [src]="image" [alt]="title" />
+  @if(!websnap || (!websnap.image && !websnap.title)){
+  <img [src]="defaultWebSnap.image" [alt]="defaultWebSnap.title" />
+  }@else{
+  <img [src]="websnap.image" [alt]="websnap.title" />
+  }
   <p>
-    <a href="/">Voir plus</a> {{description}}
+    @if(!websnap || !websnap.description){
+    {{defaultWebSnap.description}}
+    }@else{
+    {{websnap.description}}
+    }
   </p>
   <app-like-btn></app-like-btn>
 </article>
