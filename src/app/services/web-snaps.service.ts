@@ -24,7 +24,7 @@ export class WebSnapsService{
     const webSnap = this.webSnaps.find(webSnap => webSnap.id === webSnapId);
 
     if(!webSnap){
-      throw new Error("Le websnap n'existe pas.");
+      throw new Error(`Le websnap ayant pour ID ${webSnapId} n'existe pas.`);
     }
     
     return webSnap;

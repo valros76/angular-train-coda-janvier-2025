@@ -1,11 +1,5 @@
 <section class="grid-sections">
-  @for(websnap of webSnaps; track idx; let idx = $index){
-  <app-web-snap [websnap]="websnap"></app-web-snap>
-  }
-</section>
-
-<section class="grid-sections">
   @for(websnap of webSnapsServiceList; track idx; let idx = $index){
-  <app-web-snap [websnap]="websnap"></app-web-snap>
+  <app-single-web-snap [id]="websnap?.id"></app-single-web-snap>
   }
 </section>
